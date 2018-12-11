@@ -167,3 +167,24 @@ function getOffset (el) {
   };
 }
 ```
+
+### スムーズスクロール
+
+#### jQuery ver.
+
+```javascript
+$('.element').click(function() {
+  $('html, body').animate({ scrollTop: 0 }, duration);
+  return false;
+});
+```
+
+#### 脱 jQuery ver.
+
+```javascript
+document.querySelector('.element').addEventListener('click', function () {
+  document.querySelector('html, body').scrollIntoView({behavior: 'smooth'})
+});
+```
+
+※ `scrollIntoViewOptions` は、現時点（2018/12/11 現在）では一部のブラウザのみサポートされている。サポート状況は[こちら](https://caniuse.com/#search=scrollIntoView)を参照ください。

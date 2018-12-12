@@ -137,6 +137,33 @@ document.querySelector('.element').style.display = 'block';
 document.querySelector('.element').style.display = 'none';
 ```
 
+### 要素のインデックス取得
+
+#### jQuery ver.
+
+```javascript
+var elements = $('ul > li');
+var element = $('.element');
+var index = elements.index(element);
+```
+
+#### 脱 jQuery ver.
+
+```javascript
+var elements = document.querySelectorAll('ul > li');
+var element = document.querySelector('.element');
+var index = [].slice.call(elements).indexOf(element)
+```
+
+#### ES2015+ ver.
+
+```javascript
+const elements = document.querySelectorAll('ul > li');
+const element = document.querySelector('.element');
+const index = Array.from(elements).indexOf(element);
+```
+
+
 ### 要素の座標位置の取得
 
 #### jQuery ver.

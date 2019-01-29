@@ -176,9 +176,11 @@ $('.element').offset();
 
 ```javascript
 var rect = document.querySelector('.element').getBoundingClientRect();
+var currentScrollTop = document.scrollingElement.scrollTop || document.documentElement.scrollTop;
+var currentScrollLeft = document.scrollingElement.scrollLeft || document.documentElement.scrollLeft;
 var offset = {
-  top: rect.top + document.body.scrollTop,
-  left: rect.left + document.body.scrollLeft
+  top: rect.top + currentScrollTop,
+  left: rect.left + currentScrollLeft
 };
 ```
 
@@ -187,10 +189,12 @@ var offset = {
 ```javascript
 function getOffset (el) {
   var rect = document.querySelector(el).getBoundingClientRect();
+  var currentScrollTop = document.scrollingElement.scrollTop || document.documentElement.scrollTop;
+  var currentScrollLeft = document.scrollingElement.scrollLeft || document.documentElement.scrollLeft;
 
   return {
-    top: rect.top + document.body.scrollTop,
-    left: rect.left + document.body.scrollLeft
+    top: rect.top + currentScrollTop,
+    left: rect.left + currentScrollLeft
   };
 }
 ```
